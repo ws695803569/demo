@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>轮播图</title>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;text-decoration: none}
+        .all{width:1100px;position: relative;margin:0 auto }
+        .banner,.btn{text-align: center}
+        .all .banner{padding-top: 31.8%;position: relative;}
+        .all .banner li{position: absolute;top: 0;left: 0;width: 100%;height: 100%;display: none;}
+        .btn li{display: inline-block;}
+        .btn li a{display:block;color: white;width: 30px;height: 30px;border-radius: 30px;background: red;text-align: center;
+            line-height: 30px;margin: 8px;}
+    </style>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div class="all">
+    <ul class="banner">
+        <li style="display: block"><img src="img/pic1.png" alt=""></li>
+        <li><img src="img/pic2.png" alt=""></li>
+        <li><img src="img/pic3.png" alt=""></li>
+        <li><img src="img/pic4.png" alt=""></li>
+        <li><img src="img/pic5.png" alt=""></li>
+    </ul>
+    <ul class="btn">
+        <li><a href="javascript:0">1</a></li>
+        <li><a href="javascript:0">2</a></li>
+        <li><a href="javascript:0">3</a></li>
+        <li><a href="javascript:0">4</a></li>
+        <li><a href="javascript:0">5</a></li>
+    </ul>
+</div>
+<script>
+    var num = -1;
+    $('.btn li').click(function () {
+        num = $(this).index();
+        $('.banner li').hide();
+        $('.banner li').eq(num).show();
+    })
+    start = setInterval(function () {
+        if(num<4){
+            num++;
+        }else{
+            num = 0;
+        }
+        $('.banner li').hide();
+        $('.banner li').eq(num).show();
+        console.log(num);
+    },3000)
+</script>
+</body>
+</html>
